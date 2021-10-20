@@ -6,7 +6,7 @@
 /*   By: grubin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:36:37 by grubin            #+#    #+#             */
-/*   Updated: 2021/10/20 14:00:52 by grubin           ###   ########.fr       */
+/*   Updated: 2021/10/20 14:02:52 by grubin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -79,9 +79,9 @@ int	count_word(const char *s, char c)
 		i++;
 		}
 	return (count);
-}*/
+}
 	
-/*
+
 int main()
 {
 	char const *s = " coucou les loulous ";
