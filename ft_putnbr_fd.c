@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grubin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 15:32:52 by grubin            #+#    #+#             */
-/*   Updated: 2021/10/20 11:57:31 by grubin           ###   ########.fr       */
+/*   Created: 2021/10/22 10:58:08 by grubin            #+#    #+#             */
+/*   Updated: 2021/10/22 11:13:17 by grubin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	srclen;
+	unsigned int	i;
+	char			neg;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
+	neg = '-';
+	i = 0;
+	if (n < 0)
 	{
-		ft_memcpy(dst, src, srclen + 1);
+		ft_putchar_fd(neg, fd);
+		i = -n;
 	}
-	else if (size != 0)
+	else
+		i = n;
+	if (i > 9)
 	{
-		ft_memcpy(dst, src, size - 1);
-		dst[size - 1] = '\0';
+		ft_putnbr_fd(i / 10, fd);
+		i = i % 10;
 	}
-	return (srclen);
+	ft_putchar_fd(i + '0', fd);
 }

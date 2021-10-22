@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grubin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 15:32:52 by grubin            #+#    #+#             */
-/*   Updated: 2021/10/20 11:57:31 by grubin           ###   ########.fr       */
+/*   Created: 2021/10/22 08:29:41 by grubin            #+#    #+#             */
+/*   Updated: 2021/10/22 10:15:34 by grubin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	srclen;
+	char			*str;
+	unsigned int	i;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
+	i = 0;
+	if (!s)
+		return (NULL);
+	str = malloc(ft_strlen(s) + 1 * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (i < ft_strlen(s))
 	{
-		ft_memcpy(dst, src, srclen + 1);
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	else if (size != 0)
-	{
-		ft_memcpy(dst, src, size - 1);
-		dst[size - 1] = '\0';
-	}
-	return (srclen);
+	str[i] = '\0';
+	return (str);
 }

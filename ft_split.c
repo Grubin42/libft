@@ -6,7 +6,7 @@
 /*   By: grubin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:36:37 by grubin            #+#    #+#             */
-/*   Updated: 2021/10/20 14:02:52 by grubin           ###   ########.fr       */
+/*   Updated: 2021/10/21 17:23:43 by grubin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -39,7 +39,7 @@ char	**ft_split(char const *s, char c)
 
 	split = (char **) malloc(((count_strs(s, c)) + 1) * sizeof(*split));
 	if (!split)
-		return (0);
+		return (NULL);
 	index = 0;
 	while (*s != '\0')
 	{

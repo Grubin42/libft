@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grubin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 15:32:52 by grubin            #+#    #+#             */
-/*   Updated: 2021/10/20 11:57:31 by grubin           ###   ########.fr       */
+/*   Created: 2021/10/22 10:35:34 by grubin            #+#    #+#             */
+/*   Updated: 2021/10/22 10:47:18 by grubin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	srclen;
+	int	i;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		ft_memcpy(dst, src, srclen + 1);
+		ft_putchar_fd(s[i], fd);
+		i++;
 	}
-	else if (size != 0)
-	{
-		ft_memcpy(dst, src, size - 1);
-		dst[size - 1] = '\0';
-	}
-	return (srclen);
 }

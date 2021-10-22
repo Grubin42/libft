@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grubin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 15:32:52 by grubin            #+#    #+#             */
-/*   Updated: 2021/10/20 11:57:31 by grubin           ###   ########.fr       */
+/*   Created: 2021/10/22 10:05:26 by grubin            #+#    #+#             */
+/*   Updated: 2021/10/22 10:23:39 by grubin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	srclen;
+	unsigned int	i;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
+	i = 0;
+	while (i < ft_strlen(s))
 	{
-		ft_memcpy(dst, src, srclen + 1);
+		f(i, &s[i]);
+		i++;
 	}
-	else if (size != 0)
-	{
-		ft_memcpy(dst, src, size - 1);
-		dst[size - 1] = '\0';
-	}
-	return (srclen);
 }
