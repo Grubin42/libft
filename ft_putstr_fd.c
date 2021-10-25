@@ -6,7 +6,7 @@
 /*   By: grubin <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 10:35:34 by grubin            #+#    #+#             */
-/*   Updated: 2021/10/22 10:47:18 by grubin           ###   ########.fr       */
+/*   Updated: 2021/10/25 10:18:18 by grubin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,6 +16,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i] != '\0')
 	{
 		ft_putchar_fd(s[i], fd);
